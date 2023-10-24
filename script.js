@@ -71,3 +71,13 @@ waveFont.load().then((font) => {
     document.fonts.add(font);
     document.body.style.fontFamily = 'THE WAVE, Arial, sans-serif';
 });
+
+button.style.fontSize = "16px"; 
+button.style.padding = "10px 20px";
+
+input.style.fontSize = "16px";
+input.style.height = "40px"; 
+
+if (window.innerWidth <= 600) {
+    setInterval(togglePlaceholder, 4000);
+}
