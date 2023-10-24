@@ -1,0 +1,368 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    --background-color: #2C3E50;
+    --text-color: #ECECEC;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.light-mode {
+    --background-color: #F1F1F1;
+    --text-color: #333333 ;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px; 
+    height: 34px;
+    border: 2px;
+}
+
+.switch input:focus {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 34px;
+    background-color: #2196F3;
+    border : 2px solid #ECECEC;
+    transition: 0.4s;
+    border-radius: 5px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "🌙";
+    top: 5px;
+    left: 4px;
+    bottom: 4px;
+    background-color: transparent;
+    transition: 0.4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+    border: 2px solid #ECECEC;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    content: "☀️";
+    left: 30px;
+}
+
+.symbols{
+    display: flex;
+    margin: 0 10px;
+    font-size: 20px;
+}
+
+.mode-symbol{
+    margin: 0 5px;
+}
+
+.top-right {
+    position: fixed;
+    top: 10px; 
+    right: 10px; 
+    z-index: 999;
+    padding: 25px;
+}
+
+html{
+    overflow-x: hidden;
+}
+
+@font-face {
+    font-family: 'THE WAVE';
+    src: url(font/ThewaveRegular-OVOe8.ttf) format('truetype');
+}
+
+h1 {
+    text-align: center;
+    margin: 100px auto 50px;
+    font-weight: 700;
+    font-size: 3rem;
+    color: var(--text-color);
+    transition: color 0.3s;
+    font-family: 'THE WAVE', Arial, sans-serif;
+}
+
+.light-mode h1 {
+    color: #2C3E50;
+}
+
+form{
+    width: 90%;
+    max-width: 600px;
+    margin: auto;
+    height: 50px;
+    background: #34495E;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+}
+
+form input{
+    flex: 1;
+    height: 100%;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: #fff;
+    font-size: 18px;
+    padding: 0 30px;
+    border-radius: 8px;
+}
+
+form button{
+    padding: 0 40px;
+    height: 100%;
+    background: #FF8000;
+    color: #fff;
+    font-size: 18px;
+    border: 0;
+    outline: 0;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    cursor: pointer;
+    
+}
+
+form button:hover {
+    background: #FFA726;
+}
+
+::placeholder{
+    color:#fff;
+    font-size: 18px;   
+}
+
+#show-more-btn{
+    background: #FF8000;
+    color:#fff;
+    border: 0;
+    outline: 0;
+    padding: 10px 20px;
+    border-radius: 4px;
+    margin: 10px auto 100px;
+    cursor: pointer;
+    display: none;
+}
+
+#hidden-btn{
+    background: none;
+    color:#fff;
+    border: 0;
+    outline: 0;
+    padding: 10px 20px;
+    border-radius: 4px;
+    margin: 10px auto 100px;
+    cursor: pointer;
+}
+
+#show-more-btn:hover {
+    background: #FFA726;
+}
+
+#search-result{
+    width: 80%;
+    margin: 100px auto 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 40px;
+}
+
+#search-result img{
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.footer {
+    position: relative;
+    width: 100%;
+    background: #3586ff;
+    min-height: 100px;
+    padding: 60px 20px 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    bottom: 0;
+}
+
+.social-icon,
+.menu {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    flex-wrap: wrap;
+}
+
+.social-icon__item,
+.menu__item {
+    list-style: none;
+}
+
+.social-icon__link {
+    font-size: 2rem;
+    color: #fff;
+    margin: 0 10px;
+    display: inline-block;
+    transition: 0.5s;
+}
+
+.social-icon__link:hover {
+    transform: translateY(-10px);
+}
+
+.menu__link {
+    font-size: 1.2rem;
+    color: #fff;
+    margin: 0 10px;
+    display: inline-block;
+    transition: 0.5s;
+    text-decoration: none;
+    opacity: 0.75;
+    font-weight: 300;
+}
+
+.menu__link:hover {
+    opacity: 1;
+}
+
+.footer p {
+    color: #fff;
+    margin: 15px 0 10px 0;
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.wave {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: url("https://i.ibb.co/wQZVxxk/wave.png");
+    background-size: 1000px 100px;
+}
+
+.wave#wave1 {
+    z-index: 1000;
+    opacity: 1;
+    bottom: 0;
+    animation: animateWaves 4s linear infinite;
+}
+
+.wave#wave2 {
+    z-index: 999;
+    opacity: 0.5;
+    bottom: 10px;
+    animation: animate 4s linear infinite !important;
+}
+
+.wave#wave3 {
+    z-index: 1000;
+    opacity: 0.2;
+    bottom: 15px;
+    animation: animateWaves 3s linear infinite;
+}
+
+.wave#wave4 {
+    z-index: 999;
+    opacity: 0.7;
+    bottom: 20px;
+    animation: animate 3s linear infinite;
+}
+
+@keyframes animateWaves {
+    0% {
+        background-position-x: 1000px;
+    }
+    100% {
+        background-positon-x: 0px;
+    }
+}
+
+@keyframes animate {
+    0% {
+        background-position-x: -1000px;
+    }
+    100% {
+        background-positon-x: 0px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    h1 {
+        margin-top: 50px;
+        font-size: 32px;
+        padding-top: 20px;
+    }
+
+    form {
+        flex-basis: 100%;
+        height: 35px;
+    }
+
+    form input {
+        font-weight: 300;
+    }
+
+    form button {
+        font-weight: 300;
+    }
+
+    #show-more-btn {
+        padding: 10px 15px;
+        margin-bottom: 150px;
+    }
+
+    #search-result {
+        width: 100%;
+        padding: 20px;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #search-result img {
+        width: 100%;
+        height: 130px;
+    }
+
+    .social-icon a {
+        font-size: 20px;
+    }
+
+    footer .rights {
+        font-size: 13px;
+        align-items: center;
+    }
+}
